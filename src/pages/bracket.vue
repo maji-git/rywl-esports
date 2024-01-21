@@ -12,6 +12,7 @@
     </div>
 
     <div class="d-flex flex-column main-content">
+        <!--
         <div class="livestream-notice ps-3 pe-3">
             <div>/// TWITCH LIVE /////////</div>
             <div class="flex-grow-1"></div>
@@ -23,6 +24,7 @@
             <iframe class="flex-grow-1" :src="`https://player.twitch.tv/?channel=rywstudentcouncil&parent=${docDomain}`"
                 frameborder="0"></iframe>
         </div>
+        -->
 
         <div class="flex-grow-1 flex-column layout">
             <iframe class="bracket-iframe flex-grow-1" :src="`https://challonge.com/th/${gameData[route.params.id].bracketCode}/module?show_voting=0`" width="100%"
