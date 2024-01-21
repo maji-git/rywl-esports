@@ -12,7 +12,8 @@ import * as IfAppSDK from "./rywl-ifapp-sdk"
 
 onMounted(() => {
   IfAppSDK.init({
-    appName: "RYWL Esports"
+    appName: "RYWL Esports",
+    theme: IfAppSDK.ThemeFlag.DARK
   })
 
   window.addEventListener(

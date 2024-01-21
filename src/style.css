@@ -86,3 +86,49 @@ body {
         opacity: 1;
     }
 }
+
+.swal2-modal {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    box-shadow: 0px 0px 12px #D600FF;
+}
+
+@keyframes swalScale {
+    0% {
+        transform: scaleY(0);
+    }
+    100% {
+        transform: scaleY(0);
+    }
+}
+
+.swal2-modal::before {
+    content: " ";
+    width: 100%;
+    height: 4px;
+    background-color: #D600FF;
+    box-shadow: 0px 0px 12px #D600FF;
+    transform: translateY(-24px) scaleX(0.1);
+}
+
+.swal2-modal::after {
+    content: " ";
+    width: 100%;
+    height: 4px;
+    background-color: #D600FF;
+    box-shadow: 0px 0px 24px #D600FF;
+    transform: translateY(48px) scaleX(0.1);
+}
+
+.swal2-container {
+    background-color: #00000086;
+    backdrop-filter: blur(12px);
+}
+
+.swal2-select {
+    border: solid 1px #D600FF !important;
+}
+
+.swal2-select option {
+    background: black;
+}

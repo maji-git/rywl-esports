@@ -15,16 +15,17 @@
         <div class="livestream-notice ps-3 pe-3">
             <div>/// TWITCH LIVE /////////</div>
             <div class="flex-grow-1"></div>
-            <button class="btn" @click="twitchToggle = !twitchToggle">{{ twitchToggle ? "ปิด" : "เปิด" }}หน้า Twitch</button>
+            <button class="btn layout-toggle" @click="twitchToggle = !twitchToggle">{{ twitchToggle ? "ปิด" : "เปิด" }}หน้า Twitch</button>
         </div>
 
         <div class="flex-grow-1 flex-column layout" :class="{ 'layout-disable': !twitchToggle }">
+            <div class="gone-fx"></div>
             <iframe class="flex-grow-1" :src="`https://player.twitch.tv/?channel=rywstudentcouncil&parent=${docDomain}`"
                 frameborder="0"></iframe>
         </div>
 
         <div class="flex-grow-1 flex-column layout">
-            <iframe class="bracket-iframe flex-grow-1" :src="`https://challonge.com/th/${gameData[route.params.id].bracketCode}/module`" width="100%"
+            <iframe class="bracket-iframe flex-grow-1" :src="`https://challonge.com/th/${gameData[route.params.id].bracketCode}/module?show_voting=0`" width="100%"
                 frameborder="0" scrolling="auto" allowtransparency="true"></iframe>
         </div>
     </div>
@@ -36,7 +37,7 @@ import { useRoute } from "vue-router";
 
 const route = useRoute()
 const docDomain = ref(document.domain)
-const twitchToggle = ref(true)
+const twitchToggle = ref(false)
 const bracketToggle = ref(true)
 
 const gameData = ref({
@@ -46,15 +47,33 @@ const gameData = ref({
         icon: "/game-logo/valorant.svg",
         color: "#FF4655"
     },
-    tft: {
-        title: "Teamfight Tactics",
+    tftAB: {
+        title: "Teamfight Tactics GROUP A B",
         bracketCode: "TFTRYW_1",
         icon: "/game-logo/tft.svg",
         color: "#FCFF74"
     },
-    efootball: {
-        title: "Efootball",
-        bracketCode: "VALORYW",
+    tftCD: {
+        title: "Teamfight Tactics GROUP C D",
+        bracketCode: "TFTRYW_2",
+        icon: "/game-logo/tft.svg",
+        color: "#FCFF74"
+    },
+    efootballA: {
+        title: "Efootball Group A",
+        bracketCode: "2k03fgwa",
+        icon: "/game-logo/efootball.svg",
+        color: "#74DEFF"
+    },
+    efootballB: {
+        title: "Efootball Group B",
+        bracketCode: "tquxrwdl",
+        icon: "/game-logo/efootball.svg",
+        color: "#74DEFF"
+    },
+    efootballC: {
+        title: "Efootball Group C",
+        bracketCode: "itwv0nxw",
         icon: "/game-logo/efootball.svg",
         color: "#74DEFF"
     },
@@ -73,19 +92,46 @@ onMounted(() => {
     opacity: 1;
     max-height: 100vh;
     filter: blur(0);
+    position: relative;
 }
 
 .layout-disable {
     opacity: 0;
     max-height: 0;
     pointer-events: none;
-    filter: blur(5px);
+    filter: blur(20px);
     transform: scale(0.4);
     animation: layoutDisableAnim 1s linear forwards;
 }
 
+.gone-fx {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    left: calc(50% - 25px);
+    top: calc(50% - 25px);
+    transform: scale(0);
+}
+
 .game-icon {
-    animation: gameIconIn 0.5s;
+    animation: gameIconIn 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.layout-disable .gone-fx {
+    animation: layoutCircleFx 0.5s;
+}
+
+@keyframes layoutCircleFx {
+    0% {
+        transform: scaleX(0.2) scaleY(0.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scaleX(20) scaleY(0.5);
+        opacity: 1;
+    }
 }
 
 @keyframes gameIconIn {
@@ -136,6 +182,15 @@ onMounted(() => {
     width: 100%;
     position: absolute;
     bottom: 0;
+}
+
+.layout-toggle {
+    text-decoration: underline !important;
+    background-color: rgba(255, 255, 255, 0.14) !important;
+}
+
+.layout-toggle:active {
+    background-color: rgba(255, 255, 255, 0.3) !important;
 }
 
 .top-nav .top-nav-info {

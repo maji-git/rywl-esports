@@ -3,6 +3,7 @@
         <div class="banner-overlay b2"></div>
         <div class="banner-overlay b1"></div>
         <div class="banner-content">
+            <small>BETA</small>
             <h1 class="m-0">RYW</h1>
             <p class="m-0">ESPORTS TOURNAMENT</p>
         </div>
@@ -15,11 +16,12 @@
         <GameBtn gameID="tft" class="tft g2" title="Teamfight Tactics" logo="/game-logo/tft.svg" />
         <GameBtn gameID="efootball" class="efootball g3" title="eFootball" logo="/game-logo/efootball.svg" />
         <h2 class="title mt-4 mb-4" style="--color: #00FFFF;">ติดตามข่าวสาร</h2>
-        <GameBtn class="ig g4" title="@rywesports" logo="/game-logo/ig.svg" />
-        <GameBtn class="twitch g5" title="Twitch" logo="/game-logo/twitch.svg" />
+        <GameBtn external="https://www.instagram.com/rywesports/" class="ig g4" title="@rywesports" logo="/game-logo/ig.svg" />
+        <GameBtn external="https://www.twitch.tv/rywstudentcouncil" class="twitch g5" title="Twitch" logo="/game-logo/twitch.svg" />
     </div>
 
-    <p class="text-center text-muted">ส่วนหนึ่งของ ”แอพล่าสุด ระยองวิทย์” ไม่มีส่วนเกี่ยวข้องกับทางโรงเรียน หรือสภานักเรียนโดยตรง</p>
+    <p class="text-center text-muted m-0">ตัว Track นี้ส่วนหนึ่งของ ”แอพล่าสุด ระยองวิทย์” ไม่มีส่วนเกี่ยวข้องกับทางโรงเรียน หรือสภานักเรียนโดยตรง</p>
+    <p class="text-center text-muted m-0">Challonge เป็นเครื่องหมายการค้าของ Challonge LLC</p>
 </template>
 
 <script setup>
@@ -78,6 +80,14 @@ import GameBtn from "../components/game-btn.vue"
 
 .banner p {
     color: #FFD600;
+}
+
+.banner small {
+    border: solid 2px #ae00ff;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 12px;
+    font-weight: lighter;
 }
 
 .banner-divider {

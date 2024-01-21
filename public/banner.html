@@ -28,6 +28,7 @@
             border-radius: 12px;
             overflow: hidden;
             position: relative;
+            color: white;
         }
 
         .versus-container {
@@ -73,6 +74,47 @@
             text-align: center;
             height: 22px;
         }
+
+        .default-view {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .default-view .first-sub {
+            font-size: 14px;
+        }
+
+        .default-view .title {
+            color: #FA00FF;
+            font-size: 45px;
+            font-weight: bold;
+            text-shadow: 0px 0px 12px #fb00ff80;
+        }
+
+        .default-view .sub-title {
+            color: #FFD600;
+            text-shadow: 0px 0px 12px #FFD600;
+        }
+
+        .versus-view {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .game-box p {
+            margin: 0;
+        }
     </style>
 
 </head>
@@ -80,15 +122,24 @@
 <body>
 
     <div class="banner">
-        <p class="round-t">ROUND 1 VALORANT</p>
-        <div class="d-flex versus-container">
-            <div class="versus-parti">
-                <p class="m-0">พี่สิงค์กระทิงแดง</p>
-                <h1 class="m-0 score">13</h1>
-            </div>
-            <div class="versus-parti">
-                <p class="m-0">SMC#4</p>
-                <h1 class="m-0 score">2</h1>
+        <div class="default-view">
+            <p class="m-0 first-sub">ติดตามการแข่งขัน</p>
+            <h1 class="m-0 title">RYW</h1>
+            <p class="m-0 sub-title">ESPORTS TOURNAMENT</p>
+        </div>
+
+        <div class="versus-view p-4 d-none">
+            <p class="m-0 first-sub">// การแข่งขันภายในวันนี้ ////</p>
+            <div class="d-flex flex-warp flex-grow-1">
+                <div class="game-box me-3">
+                    <img src="/game-logo/valorant.svg" alt="Valorant">
+                    <p>Valorant</p>
+                </div>
+
+                <div class="game-box me-3">
+                    <img src="/game-logo/tft.svg" alt="Valorant">
+                    <p>Teamfight Tactics</p>
+                </div>
             </div>
         </div>
     </div>
