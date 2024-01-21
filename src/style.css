@@ -122,7 +122,6 @@ body {
 
 .swal2-container {
     background-color: #00000086;
-    backdrop-filter: blur(12px);
 }
 
 .swal2-select {
